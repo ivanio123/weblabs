@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог про книги</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #4B5945;">
+        <div class="container">
+            <a class="navbar-brand" href="/">Блог про книги</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/privacy">Конфіденційність</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">Про нас</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+
+        <a href="/create" class="btn btn-primary mb-3">Додати нову книгу</a>
+
+        <div class="row">
+            <% books.forEach(book => { %>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= book.name %></h5>
+                            <p class="card-text"><%= book.description %></p>
+                            <a href="/item/<%= book.id %>" class="btn btn-outline-primary mt-2">Деталі</a>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+
+        <!-- Посилання на сторінки Privacy та About -->
+        <div class="mt-5">
+            <a href="/privacy" class="btn btn-outline-info mr-2">Про конфіденційність</a>
+            <a href="/about" class="btn btn-outline-info ml-2">Про нас</a>
+        </div>
+    </div>
+
+</body>
+</html>
